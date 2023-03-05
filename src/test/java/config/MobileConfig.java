@@ -23,7 +23,7 @@ public interface MobileConfig extends Config {
     @DefaultValue("bs://b3329f44da140f8046974f5ecdba6c1d950fb9e9")
     String app();
 
-    @Key("deviceHost")
+    @Key("host")
     @DefaultValue("remote")
     String deviceHost();
 
