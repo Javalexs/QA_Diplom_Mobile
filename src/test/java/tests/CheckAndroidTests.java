@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
-public class CheckAndroidTests {
+public class CheckAndroidTests extends TestBase{
     @Tag("mobile")
     @Owner("Alexsey Fadeev")
     @Test
