@@ -9,13 +9,13 @@ public interface BrowserStackConfig extends Config {
     String userName();
     String passWord();
 
-    @DefaultValue("bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c")
+    @DefaultValue("bs://01e17240ba7a175af125b6c9c60f8ed39f1544fa")
     String app();
 
-//    @DefaultValue("Google Pixel 3")
-//    String device();
-//
-//    @DefaultValue("9.0")
-//    String osVersion();
+    @DefaultValue("Google Pixel 3")
+    String device();
+
+    @DefaultValue("9.0")
+    String osVersion();
 
 }
