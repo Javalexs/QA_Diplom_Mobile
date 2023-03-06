@@ -18,6 +18,7 @@ public class TestBase {
     public static String testType = System.getProperty("testType");
     @BeforeAll
     static void setup() {
+        addListener("AllureSelenide", new AllureSelenide());
         if (testType == null) {
             testType = "local";
         }
@@ -37,11 +38,8 @@ public class TestBase {
 
     @BeforeEach
     public void startDriver() {
-        addListener("AllureSelenide", new AllureSelenide());
         open();
-
     }
-
     @AfterEach
     public void afterEach() {
         String sessionId = getSessionId();
