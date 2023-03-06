@@ -18,17 +18,20 @@ public class TestBase {
     public static String testType = System.getProperty("testType");
     @BeforeAll
     public static void setup() {
-        addListener("AllureSelenide", new AllureSelenide());
+        if (testType == null) {
+            testType = "local";
+        }
 
         switch (testType) {
             case "local":
                 Configuration.browser = LocalMobileDriver.class.getName();
+                System.out.println("local test start");
                 break;
-            case "remote":
+            case "browserstack":
                 Configuration.browser = BrowserstackMobileDriver.class.getName();
+                System.out.println("remote test start");
                 break;
         }
-
         Configuration.browserSize = null;
     }
 
