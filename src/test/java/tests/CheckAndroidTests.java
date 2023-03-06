@@ -15,8 +15,8 @@ public class CheckAndroidTests extends TestBase{
     @Test
     void successSearchWikiTest() {
         back();
-        $(AppiumBy.id("org.wikipedia.alpha:id/search_src_text")).sendKeys("JavaScript");
         $(AppiumBy.accessibilityId("Search Wikipedia")).click();
+        $(AppiumBy.id("org.wikipedia.alpha:id/search_src_text")).sendKeys("JavaScript");
         $$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title"))
                 .shouldHave(sizeGreaterThan(0));
 //        step("Skip onboarding pages", () -> back());
