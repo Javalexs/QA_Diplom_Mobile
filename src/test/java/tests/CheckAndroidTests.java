@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 public class CheckAndroidTests extends TestBase{
-    @Tag("mobile")
+
     @Owner("Alexsey Fadeev")
     @Test
     void successSearchWikiTest() {
@@ -26,7 +26,7 @@ public class CheckAndroidTests extends TestBase{
         });
     }
 
-    @Tag("mobile")
+
     @Owner("Alexsey Fadeev")
     @Test
     void countryPageSearchTest() {
@@ -46,7 +46,7 @@ public class CheckAndroidTests extends TestBase{
         });
     }
 
-    @Tag("mobile")
+
     @Owner("Alexsey Fadeev")
     @Test
     void onBoardingStepsTest() {

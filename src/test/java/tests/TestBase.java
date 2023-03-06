@@ -49,7 +49,7 @@ public class TestBase {
         closeWebDriver();
 
         switch (testType) {
-            case "browserstack":
+            case "remote":
                 Attach.video(sessionId);
                 break;
         }
