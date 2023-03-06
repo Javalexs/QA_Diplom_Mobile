@@ -2,14 +2,16 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources("classpath:local.properties")
+@Config.Sources({
+        "classpath:local.properties"
+})
 
 public interface LocalConfig extends Config {
 
     @DefaultValue("android")
     String platformName();
 
-    @DefaultValue("Pixel 4 API 30")
+    @DefaultValue("Pixel 4 ")
     String deviceName();
 
     @DefaultValue("11.0")

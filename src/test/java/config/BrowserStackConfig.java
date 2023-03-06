@@ -2,7 +2,9 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources("classpath:remote.properties")
+@Config.Sources({
+        "classpath:remote.properties"
+})
 
 public interface BrowserStackConfig extends Config {
 
@@ -12,10 +14,10 @@ public interface BrowserStackConfig extends Config {
     @DefaultValue("bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c")
     String app();
 
-    @DefaultValue("Google Pixel 3")
+    @DefaultValue("Google Pixel 4")
     String device();
 
-    @DefaultValue("9.0")
+    @DefaultValue("11.0")
     String osVersion();
 
 }

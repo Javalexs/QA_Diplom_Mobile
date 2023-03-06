@@ -14,9 +14,9 @@ public class CheckAndroidTests extends TestBase{
     @Owner("Alexsey Fadeev")
     @Test
     void successSearchWikiTest() {
-        back();
+        step("Skip onboarding pages", () -> back());
         step("Type search", () -> {
-            $(AppiumBy.id("Search Wikipedia")).click();
+            $(AppiumBy.accessibilityId("Search Wikipedia")).click();
             $(AppiumBy.id("org.wikipedia.alpha:id/search_src_text")).sendKeys("JavaScript");
         });
         step("Verify content found", () -> {
@@ -29,7 +29,7 @@ public class CheckAndroidTests extends TestBase{
     @Owner("Alexsey Fadeev")
     @Test
     void countryPageSearchTest() {
-        back();
+        step("Skip onboarding pages", () -> back());
         step("Type search", () -> {
             $(AppiumBy.accessibilityId("Search Wikipedia")).click();
             $(AppiumBy.id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Argentina");
@@ -49,6 +49,7 @@ public class CheckAndroidTests extends TestBase{
     @Owner("Alexsey Fadeev")
     @Test
     void onBoardingStepsTest() {
+        step("Skip onboarding pages", () -> back());
 
         step("Check that the text 'The Free Encyclopedia …in over 300 languages' is visible", () -> {
             $(AppiumBy.id("org.wikipedia.alpha:id/primaryTextView"))

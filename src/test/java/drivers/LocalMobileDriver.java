@@ -17,10 +17,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import static io.appium.java_client.remote.AutomationName.ANDROID_UIAUTOMATOR2;
+import static io.appium.java_client.remote.MobileBrowserType.ANDROID;
 import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
 @ParametersAreNonnullByDefault
 public class LocalMobileDriver implements WebDriverProvider {
+    static LocalConfig config = ConfigFactory.create(LocalConfig.class, System.getProperties());
 
     public static URL getAppiumServerUrl() {
         try {
@@ -33,12 +35,12 @@ public class LocalMobileDriver implements WebDriverProvider {
     @SneakyThrows
     @Override
     public WebDriver createDriver(Capabilities capabilities) {
-        LocalConfig config = ConfigFactory.create(LocalConfig.class, System.getProperties());
+
         UiAutomator2Options options = new UiAutomator2Options();
         options.merge(capabilities);
 
         options.setAutomationName(ANDROID_UIAUTOMATOR2)
-                .setPlatformName(config.platformName())
+                .setPlatformName(ANDROID)
                 .setDeviceName(config.deviceName())
                 .setPlatformVersion(config.osVersion())
                 .setApp(getAppPath())
