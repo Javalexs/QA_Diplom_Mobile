@@ -27,7 +27,7 @@ public class TestBase {
                 Configuration.browser = LocalMobileDriver.class.getName();
                 System.out.println("local test start");
                 break;
-            case "browserstack":
+            case "remote":
                 Configuration.browser = BrowserstackMobileDriver.class.getName();
                 System.out.println("remote test start");
                 break;

@@ -8,9 +8,9 @@ repositories {
     mavenCentral()
 }
 
-def selenideVersion = "6.9.0",
+def selenideVersion = "6.11.2",
     junitVersion = "5.8.2",
-    slf4jVersion = "1.7.36",
+    slf4jVersion = "2.0.6",
     javaFakerVersion = "1.0.2",
     allureSelenideVersion = "2.19.0",
     allureRestAssuredVersion = "2.17.2",
@@ -18,7 +18,7 @@ def selenideVersion = "6.9.0",
     restAssuredVersion = "4.5.1",
     assertjVersion = "3.22.0",
     jsonPathVersion = "2.7.0",
-    appiumVersion = "8.1.1",
+    appiumVersion = "8.3.0",
     commonsVersion = "2.11.0"
 
 group 'qa.guru.allure'
