@@ -17,7 +17,7 @@ import static helpers.Attach.getSessionId;
 public class TestBase {
     public static String testType = System.getProperty("testType");
     @BeforeAll
-    public static void setup() {
+    static void setup() {
         if (testType == null) {
             testType = "local";
         }
