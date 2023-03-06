@@ -1,32 +1,24 @@
 package helpers;
 
-import config.MobileConfig;
+import config.BrowserStackConfig;
 import org.aeonbits.owner.ConfigFactory;
 
 import static io.restassured.RestAssured.given;
 import static java.lang.String.format;
 
 public class Browserstack {
-    static MobileConfig config = ConfigFactory.create(MobileConfig.class, System.getProperties());
-
-    public static String
-            browserstackLogin = config.browserstackLogin(),
-            browserstackPassword = config.browserstackPassword(),
-            browserstackUrl = config.browserstackUrl(),
-            app = config.app();
-
-    public static String videoUrl(String sessionId) {
-        String url = format("https://api-cloud.browserstack.com/app-automate/sessions/%s.json", sessionId);
+    public static String getVideoUrl(String sessionId) {
+        BrowserStackConfig config = ConfigFactory.create(BrowserStackConfig.class, System.getProperties());
+        String url = format("https://api.browserstack.com/app-automate/sessions/%s.json", sessionId);
 
         return given()
-                .auth().basic(browserstackLogin, browserstackPassword)
                 .log().all()
+                .auth().basic(config.userName(), config.passWord())
                 .when()
                 .get(url)
                 .then()
                 .log().all()
                 .statusCode(200)
-                .extract()
-                .path("automation_session.video_url");
+                .extract().path("automation_session.video_url");
     }
 }

@@ -1,12 +1,10 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import config.MobileConfig;
 import drivers.BrowserstackMobileDriver;
 import drivers.LocalMobileDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,13 +15,12 @@ import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static helpers.Attach.getSessionId;
 
 public class TestBase {
-    static MobileConfig config = ConfigFactory.create(MobileConfig.class, System.getProperties());
-
+    public static String testType = System.getProperty("testType");
     @BeforeAll
     public static void setup() {
         addListener("AllureSelenide", new AllureSelenide());
 
-        switch (config.deviceHost()) {
+        switch (testType) {
             case "local":
                 Configuration.browser = LocalMobileDriver.class.getName();
                 break;
@@ -37,12 +34,8 @@ public class TestBase {
 
     @BeforeEach
     public void startDriver() {
+        addListener("AllureSelenide", new AllureSelenide());
         open();
-
-        Attach.attachAsText("Launch mode: ", config.deviceHost());
-        Attach.attachAsText("Device:", config.deviceName());
-        Attach.attachAsText("Version:", config.app());
-        Attach.attachAsText("BrowsURL: ", config.browserstackUrl());
 
     }
 
@@ -55,8 +48,10 @@ public class TestBase {
 
         closeWebDriver();
 
-        if (config.deviceHost().contains("remote")) {
-            Attach.video(sessionId);
+        switch (testType) {
+            case "browserstack":
+                Attach.video(sessionId);
+                break;
         }
     }
 }

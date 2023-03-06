@@ -1,7 +1,7 @@
 package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
-import config.MobileConfig;
+import config.BrowserStackConfig;
 import lombok.SneakyThrows;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
@@ -13,11 +13,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BrowserstackMobileDriver implements WebDriverProvider {
-    static MobileConfig config = ConfigFactory.create(MobileConfig.class, System.getProperties());
+    static BrowserStackConfig config = ConfigFactory.create(BrowserStackConfig.class, System.getProperties());
 
     public static URL getBrowserstackUrl() {
         try {
-            return new URL(config.browserstackUrl());
+            return new URL("http://hub.browserstack.com/wd/hub");
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -29,8 +29,8 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
         mutableCapabilities.merge(capabilities);
 
-        mutableCapabilities.setCapability("browserstack.user", config.browserstackLogin());
-        mutableCapabilities.setCapability("browserstack.key", config.browserstackPassword());
+        mutableCapabilities.setCapability("browserstack.user", config.userName());
+        mutableCapabilities.setCapability("browserstack.key", config.passWord());
 
         mutableCapabilities.setCapability("app", config.app());
 
