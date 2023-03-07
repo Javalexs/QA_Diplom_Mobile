@@ -1,7 +1,8 @@
-package tests;
+package tests.android.selenide;
 
 import com.codeborne.selenide.Configuration;
-import drivers.BrowserstackMobileDriver;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import drivers.BrowserStackDriver;
 import drivers.LocalMobileDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -9,50 +10,38 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
-import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
-import static helpers.Attach.getSessionId;
-
+import static com.codeborne.selenide.Selenide.*;
 public class TestBase {
-    public static String testType = System.getProperty("testType");
+    public static String env = System.getProperty("env");
     @BeforeAll
-    static void setup() {
-        addListener("AllureSelenide", new AllureSelenide());
-        if (testType == null) {
-            testType = "local";
+    static void beforeAll() {
+        if (env == null) {
+            env = "emulator";
         }
-
-        switch (testType) {
-            case "local":
-                Configuration.browser = LocalMobileDriver.class.getName();
-                System.out.println("local test start");
+        switch (System.getProperty("env")) {
+            case "browserstack":
+                Configuration.browser = BrowserStackDriver.class.getName();
                 break;
-            case "remote":
-                Configuration.browser = BrowserstackMobileDriver.class.getName();
-                System.out.println("remote test start");
+            case "emulator":
+                Configuration.browser = LocalMobileDriver.class.getName();
                 break;
         }
         Configuration.browserSize = null;
+        Configuration.timeout = 15000;
+        Configuration.pageLoadTimeout = 15000;
     }
 
     @BeforeEach
-    public void startDriver() {
+    void addListener() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         open();
     }
+
     @AfterEach
-    public void afterEach() {
-        String sessionId = getSessionId();
-
-        Attach.screenshotAs("Last screenshot");
+    void addAttachments() {
+        String sessionId = sessionId().toString();
         Attach.pageSource();
-
         closeWebDriver();
-
-        switch (testType) {
-            case "remote":
-                Attach.video(sessionId);
-                break;
-        }
+        if (!System.getProperty("env").equals("emulator")) Attach.addVideo(sessionId);
     }
 }
