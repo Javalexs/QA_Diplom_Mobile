@@ -1,20 +1,22 @@
 package config;
 
 import org.aeonbits.owner.Config;
-
-@Config.Sources({
-        "classpath:local.properties"
-})
-
+//@LocalConfig.LoadPolicy(LocalConfig.LoadType.MERGE)
+@Config.Sources(
+        {"system:properties",
+                "classpath:emulator.properties",
+        })
 public interface LocalConfig extends Config {
 
-    @DefaultValue("android")
-    String platformName();
+    @Key("appPackage")
+    String getAppPackage();
 
-    @DefaultValue("Nexus 5 API 33")
-    String deviceName();
+    @Key("appActivity")
+    String getAppActivity();
 
-    @DefaultValue("11.0")
+    @Key("device")
+    String device();
+
+    @Key("os_version")
     String osVersion();
-
 }
