@@ -18,7 +18,7 @@ public class TestBase {
         if (env == null) {
             env = "remote";
         }
-        switch (System.getProperty("env")) {
+        switch (env) {
             case "remote":
                 Configuration.browser = BrowserStackDriver.class.getName();
                 break;
