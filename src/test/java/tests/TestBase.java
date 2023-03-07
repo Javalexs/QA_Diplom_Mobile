@@ -16,19 +16,20 @@ public class TestBase {
     @BeforeAll
     static void beforeAll() {
         if (env == null) {
-            env = "emulator";
+            env = "remote";
         }
         switch (System.getProperty("env")) {
-            case "browserstack":
+            case "remote":
                 Configuration.browser = BrowserStackDriver.class.getName();
                 break;
-            case "emulator":
+            case "local":
                 Configuration.browser = LocalMobileDriver.class.getName();
                 break;
         }
+        Configuration.timeout = 10000;
+        Configuration.pageLoadTimeout = 10000;
         Configuration.browserSize = null;
-        Configuration.timeout = 15000;
-        Configuration.pageLoadTimeout = 15000;
+
     }
 
     @BeforeEach
