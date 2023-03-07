@@ -1,9 +1,10 @@
 package config;
 
 import org.aeonbits.owner.Config;
-@BrowserStackConfig.LoadPolicy(BrowserStackConfig.LoadType.MERGE)
+//@BrowserStackConfig.LoadPolicy(BrowserStackConfig.LoadType.MERGE)
 @Config.Sources({
-                "classpath:remote.properties"})
+                "classpath:${env}.properties"
+})
 public interface BrowserStackConfig extends Config {
     @Key("login")
     String login();

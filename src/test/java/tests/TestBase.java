@@ -26,10 +26,7 @@ public class TestBase {
                 Configuration.browser = LocalMobileDriver.class.getName();
                 break;
         }
-        Configuration.timeout = 10000;
-        Configuration.pageLoadTimeout = 10000;
         Configuration.browserSize = null;
-
     }
 
     @BeforeEach
@@ -43,6 +40,6 @@ public class TestBase {
         String sessionId = sessionId().toString();
         Attach.pageSource();
         closeWebDriver();
-        if (!System.getProperty("env").equals("emulator")) Attach.addVideo(sessionId);
+        if (!System.getProperty("env").equals("local")) Attach.addVideo(sessionId);
     }
 }

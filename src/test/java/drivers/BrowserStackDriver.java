@@ -13,9 +13,10 @@ import javax.annotation.Nonnull;
 import java.net.URL;
 
 public class BrowserStackDriver implements WebDriverProvider {
-    static BrowserStackConfig config = ConfigFactory.create(BrowserStackConfig.class);
+    static BrowserStackConfig config = ConfigFactory.create(BrowserStackConfig.class, System.getProperties());
     @SneakyThrows
     @Override
+    @Nonnull
     public WebDriver createDriver(@Nonnull Capabilities capabilities) {
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
         mutableCapabilities.merge(capabilities);

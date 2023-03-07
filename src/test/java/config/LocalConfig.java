@@ -1,9 +1,10 @@
 package config;
 
 import org.aeonbits.owner.Config;
-@LocalConfig.LoadPolicy(LocalConfig.LoadType.MERGE)
-@Config.Sources({"classpath:local.properties"
-        })
+//@LocalConfig.LoadPolicy(LocalConfig.LoadType.MERGE)
+@Config.Sources({
+        "classpath:${env}.properties"
+})
 public interface LocalConfig extends Config {
 
     @Key("appPackage")
