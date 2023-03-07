@@ -2,8 +2,7 @@ package config;
 
 import org.aeonbits.owner.Config;
 @BrowserStackConfig.LoadPolicy(BrowserStackConfig.LoadType.MERGE)
-@org.aeonbits.owner.Config.Sources(
-        {"system:properties",
+@Config.Sources({
                 "classpath:remote.properties"})
 public interface BrowserStackConfig extends Config {
     @Key("login")
