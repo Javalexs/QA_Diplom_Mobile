@@ -1,7 +1,7 @@
 package config;
 
 import org.aeonbits.owner.Config;
-//@BrowserstackConfig.LoadPolicy(BrowserstackConfig.LoadType.MERGE)
+@BrowserStackConfig.LoadPolicy(BrowserStackConfig.LoadType.MERGE)
 @org.aeonbits.owner.Config.Sources(
         {"system:properties",
                 "classpath:remote.properties"})

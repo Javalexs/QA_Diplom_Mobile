@@ -1,7 +1,7 @@
 package config;
 
 import org.aeonbits.owner.Config;
-//@LocalConfig.LoadPolicy(LocalConfig.LoadType.MERGE)
+@LocalConfig.LoadPolicy(LocalConfig.LoadType.MERGE)
 @Config.Sources(
         {"system:properties",
                 "classpath:local.properties",
