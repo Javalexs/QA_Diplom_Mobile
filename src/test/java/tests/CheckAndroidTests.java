@@ -42,24 +42,24 @@ public class CheckAndroidTests extends tests.android.selenide.TestBase {
     }
 //
 //
-//    @Owner("Alexsey Fadeev")
-//    @Test
-//    void countryPageSearchTest() {
+    @Owner("Alexsey Fadeev")
+    @Test
+    void countryPageSearchTest() {
 //        step("Skip onboarding pages", () -> back());
-//        step("Type search", () -> {
-//            $(AppiumBy.accessibilityId("Search Wikipedia")).click();
-//            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Argentina");
-//        });
-//        step("Verify content found", () -> {
-//            $$(AppiumBy.className("android.widget.TextView"))
-//                    .shouldHave(CollectionCondition.sizeGreaterThan(0));
-//        });
-//        step("Verify page is correct", () -> {
-//            $(id("org.wikipedia.alpha:id/page_list_item_title")).click();
-//            $(AppiumBy.className("android.webkit.WebView")).click();
-//            $(AppiumBy.className("android.widget.TextView")).shouldHave(text("Argentina"));
-//        });
-//    }
+        step("Type search", () -> {
+            $(AppiumBy.accessibilityId("Search Wikipedia")).click();
+            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Argentina");
+        });
+        step("Verify content found", () -> {
+            $$(AppiumBy.className("android.widget.TextView"))
+                    .shouldHave(CollectionCondition.sizeGreaterThan(0));
+        });
+        step("Verify page is correct", () -> {
+            $(id("org.wikipedia.alpha:id/page_list_item_title")).click();
+            $(AppiumBy.className("android.webkit.WebView")).click();
+            $(AppiumBy.className("android.widget.TextView")).shouldHave(text("Argentina"));
+        });
+    }
 //
 //
 //    @Owner("Alexsey Fadeev")
