@@ -9,20 +9,6 @@ repositories {
 }
 
 
-allure {
-    report {
-        version.set(allureVersion)
-    }
-    adapter { // отвечает за появление папочки build/allure-results
-        aspectjWeaver.set(true) //обработка аннотации @Step
-        frameworks {
-            junit5 { //название фреймворка
-                adapterVersion.set(allureVersion) //версия интеграции фреймворка и Allure
-            }
-        }
-    }
-}
-
 dependencies {
     testImplementation (
             'org.junit.jupiter:junit-jupiter-api:5.9.2',
@@ -37,6 +23,19 @@ dependencies {
             'io.appium:java-client:8.2.1',
             'com.codeborne:selenide-appium:2.5.2'
     )
+}
+allure {
+    report {
+        version.set(allureVersion)
+    }
+    adapter { // отвечает за появление папочки build/allure-results
+        aspectjWeaver.set(true) //обработка аннотации @Step
+        frameworks {
+            junit5 { //название фреймворка
+                adapterVersion.set(allureVersion) //версия интеграции фреймворка и Allure
+            }
+        }
+    }
 }
 
 tasks.withType(JavaCompile) {
