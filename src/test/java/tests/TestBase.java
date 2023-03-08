@@ -27,8 +27,8 @@ public class TestBase {
                 break;
         }
         Configuration.browserSize = null;
-//        Configuration.pageLoadTimeout = 15000;
-//        Configuration.timeout = 15000;
+        Configuration.pageLoadTimeout = 35000;
+        Configuration.timeout = 35000;
 
     }
 
