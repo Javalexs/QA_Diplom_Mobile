@@ -2,9 +2,9 @@ package config;
 
 import org.aeonbits.owner.Config;
 import org.aeonbits.owner.ConfigFactory;
-@Config.LoadPolicy(Config.LoadType.MERGE)
+//@Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
-        "system:properties",
+//        "system:properties",
         "classpath:${env}.properties"
 })
 
