@@ -15,40 +15,18 @@ public class CheckAndroidTests extends tests.android.selenide.TestBase {
     @Owner("Alexsey Fadeev")
     @Test
 
-
-    void onboardingTest() {
-        step("Open started page", () -> {
-            $(id("org.wikipedia.alpha:id/primaryTextView"))
-                    .shouldHave(text("The Free Encyclopedia …in over 300 languages"));
+    void successSearchWikiTest() {
+        back();
+        step("Type search", () -> {
+//            $(id("org.wikipedia:id/search_container")).click();
+            $(AppiumBy.accessibilityId("Search Wikipedia")).click();
+            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("JavaScript");
         });
-        step("Go to the next onboarding page - New ways to explore", () -> {
-            $(id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click();
-            $(id("org.wikipedia.alpha:id/primaryTextView"))
-                    .shouldHave(text("New ways to explore"));
-        });
-        step("Go to the next onboarding page - Reading lists with sync", () -> {
-            $(id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click();
-            $(id("org.wikipedia.alpha:id/primaryTextView"))
-                    .shouldHave(text("Reading lists with sync"));
-        });
-        step("Go to the next onboarding page - Send anonymous data", () -> {
-            $(id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click();
-            $(id("org.wikipedia.alpha:id/primaryTextView"))
-                    .shouldHave(text("Send anonymous data"));
+        step("Verify content found", () -> {
+            $$(id("org.wikipedia.alpha:id/page_list_item_title"))
+                    .shouldHave(sizeGreaterThan(0));
         });
     }
-//    void successSearchWikiTest() {
-//        step("Skip onboarding pages", () -> back());
-//        step("Type search", () -> {
-////            $(id("org.wikipedia:id/search_container")).click();
-//            $(AppiumBy.accessibilityId("Search Wikipedia")).click();
-//            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("JavaScript");
-//        });
-//        step("Verify content found", () -> {
-//            $$(id("org.wikipedia.alpha:id/page_list_item_title"))
-//                    .shouldHave(sizeGreaterThan(0));
-//        });
-//    }
 //
 //
 //    @Owner("Alexsey Fadeev")
