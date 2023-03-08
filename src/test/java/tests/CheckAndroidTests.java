@@ -45,7 +45,7 @@ public class CheckAndroidTests extends tests.android.selenide.TestBase {
     @Owner("Alexsey Fadeev")
     @Test
     void countryPageSearchTest() {
-        step("Skip onboarding pages", () -> back());
+//        step("Skip onboarding pages", () -> back());
         step("Type search", () -> {
             $(AppiumBy.accessibilityId("Search Wikipedia")).click();
             $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Argentina");
@@ -60,41 +60,41 @@ public class CheckAndroidTests extends tests.android.selenide.TestBase {
             $(AppiumBy.className("android.widget.TextView")).shouldHave(text("Argentina"));
         });
     }
-//
-//
-//    @Owner("Alexsey Fadeev")
-//    @Test
-//    void onBoardingStepsTest() {
+
+
+    @Owner("Alexsey Fadeev")
+    @Test
+    void onBoardingStepsTest() {
 //        step("Skip onboarding pages", () -> back());
-//
-//        step("Check that the text 'The Free Encyclopedia …in over 300 languages' is visible", () -> {
-//            $(id("org.wikipedia.alpha:id/primaryTextView"))
-//                    .shouldHave(text("The Free Encyclopedia …in over 300 languages"));
-//        });
-//
-//        step("Click on 'Сontinue'", () ->
-//                $(id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click());
-//
-//        step("Check that the text 'New ways to explore' is visible", () -> {
-//            $(id("org.wikipedia.alpha:id/primaryTextView"))
-//                    .shouldHave(text("New ways to explore"));
-//        });
-//
-//        step("Click on 'Сontinue'", () ->
-//                $(id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click());
-//
-//        step("Check that the text 'Reading lists with sync' is visible", () -> {
-//            $(id("org.wikipedia.alpha:id/primaryTextView"))
-//                    .shouldHave(text("Reading lists with sync"));
-//        });
-//
-//        step("Click on 'Сontinue'", () ->
-//                $(id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click());
-//
-//        step("Check that the text 'Send anonymous data' is visible", () -> {
-//            $(id("org.wikipedia.alpha:id/primaryTextView"))
-//                    .shouldHave(text("Send anonymous data"));
-//        });
-//    }
+
+        step("Check that the text 'The Free Encyclopedia …in over 300 languages' is visible", () -> {
+            $(id("org.wikipedia.alpha:id/primaryTextView"))
+                    .shouldHave(text("The Free Encyclopedia …in over 300 languages"));
+        });
+
+        step("Click on 'Сontinue'", () ->
+                $(id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click());
+
+        step("Check that the text 'New ways to explore' is visible", () -> {
+            $(id("org.wikipedia.alpha:id/primaryTextView"))
+                    .shouldHave(text("New ways to explore"));
+        });
+
+        step("Click on 'Сontinue'", () ->
+                $(id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click());
+
+        step("Check that the text 'Reading lists with sync' is visible", () -> {
+            $(id("org.wikipedia.alpha:id/primaryTextView"))
+                    .shouldHave(text("Reading lists with sync"));
+        });
+
+        step("Click on 'Сontinue'", () ->
+                $(id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click());
+
+        step("Check that the text 'Send anonymous data' is visible", () -> {
+            $(id("org.wikipedia.alpha:id/primaryTextView"))
+                    .shouldHave(text("Send anonymous data"));
+        });
+    }
 
 }
