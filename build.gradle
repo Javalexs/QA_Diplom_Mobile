@@ -28,7 +28,7 @@ dependencies {
     testImplementation (
             "com.codeborne:selenide:6.11.2",
             "io.qameta.allure:allure-selenide:$allureVersion",
-            "io.appium:java-client:8.3.0",
+            "io.appium:java-client:8.2.1",
             "io.rest-assured:rest-assured:5.3.0",
             "io.qameta.allure:allure-rest-assured:$allureVersion",
             "com.github.javafaker:javafaker:1.0.2",
