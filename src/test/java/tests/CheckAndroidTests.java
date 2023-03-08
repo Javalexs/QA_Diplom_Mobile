@@ -19,7 +19,7 @@ public class CheckAndroidTests extends tests.android.selenide.TestBase {
     @Test
 
     void successSearchWikiTest() {
-        back();
+//        back();
         step("Type search", () -> {
 //            $(id("org.wikipedia:id/search_container")).click();
             $(AppiumBy.accessibilityId("Search Wikipedia")).click();
