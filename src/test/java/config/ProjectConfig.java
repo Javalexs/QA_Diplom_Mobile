@@ -41,7 +41,7 @@ public interface ProjectConfig extends Config {
         @Key("localDriverUrl")
         String getLocalDriverUrl();
 
-        @Key("apppackage")
+        @Key("appackage")
         String getAppPackage();
 
         @Key("appactivity")

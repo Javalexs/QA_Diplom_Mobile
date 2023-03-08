@@ -66,7 +66,7 @@ public class CheckAndroidTests extends tests.android.selenide.TestBase {
     @Test
     void onBoardingStepsTest() {
 //        step("Skip onboarding pages", () -> back());
-
+        back();
         step("Check that the text 'The Free Encyclopedia …in over 300 languages' is visible", () -> {
             $(id("org.wikipedia.alpha:id/primaryTextView"))
                     .shouldHave(text("The Free Encyclopedia …in over 300 languages"));
