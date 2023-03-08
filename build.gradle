@@ -7,7 +7,7 @@ plugins {
 repositories {
     mavenCentral()
 }
-
+def allureVersion = "2.20.1"
 
 dependencies {
     testImplementation (
