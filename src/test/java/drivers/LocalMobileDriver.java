@@ -1,7 +1,7 @@
 package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
-import config.LocalConfig;
+import config.ProjectConfig;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.aeonbits.owner.ConfigFactory;
@@ -20,11 +20,11 @@ import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
 
 public class LocalMobileDriver implements WebDriverProvider {
-    static LocalConfig emulatorConfig = ConfigFactory.create(LocalConfig.class, System.getProperties());
+    static ProjectConfig emulatorConfig = ConfigFactory.create(ProjectConfig.class, System.getProperties());
 
     public static URL getAppiumServerUrl() {
         try {
-            return new URL("http://localhost:4723/wd/hub");
+            return new URL(emulatorConfig.getLocalDriverUrl());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -36,9 +36,9 @@ public class LocalMobileDriver implements WebDriverProvider {
         options.merge(capabilities);
 
         options.setAutomationName(ANDROID_UIAUTOMATOR2)
-                .setPlatformName(ANDROID)
-                .setDeviceName(emulatorConfig.device())
-                .setPlatformVersion(emulatorConfig.osVersion())
+                .setPlatformName(emulatorConfig.getPlatformName())
+                .setDeviceName(emulatorConfig.getDevice())
+                .setPlatformVersion(emulatorConfig.getOsVersion())
                 .setApp(getAppPath())
                 .setAppPackage(emulatorConfig.getAppPackage())
                 .setAppActivity(emulatorConfig.getAppActivity());
@@ -47,9 +47,8 @@ public class LocalMobileDriver implements WebDriverProvider {
     }
 
     private String getAppPath() {
-        String appUrl = "https://github.com/wikimedia/apps-android-wikipedia/" +
-                "releases/download/latest/app-alpha-universal-release.apk";
-        String appPath = "src/test/resources/apps/app-alpha-universal-release.apk";
+        String appUrl = emulatorConfig.getAppUrl();
+        String appPath = emulatorConfig.getAppPath();
 
         File app = new File(appPath);
         if (!app.exists()) {

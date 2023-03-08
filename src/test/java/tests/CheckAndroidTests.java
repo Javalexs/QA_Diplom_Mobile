@@ -17,8 +17,8 @@ public class CheckAndroidTests extends tests.android.selenide.TestBase {
     void successSearchWikiTest() {
         step("Skip onboarding pages", () -> back());
         step("Type search", () -> {
-            $(id("org.wikipedia:id/search_container")).click();
-//            $(AppiumBy.accessibilityId("Search Wikipedia")).click();
+//            $(id("org.wikipedia:id/search_container")).click();
+            $(AppiumBy.accessibilityId("Search Wikipedia")).click();
             $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("JavaScript");
         });
         step("Verify content found", () -> {
