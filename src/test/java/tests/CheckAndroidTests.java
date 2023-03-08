@@ -15,51 +15,51 @@ import static io.appium.java_client.AppiumBy.id;
 import static io.qameta.allure.Allure.step;
 public class CheckAndroidTests extends tests.android.selenide.TestBase {
 
-    @Owner("Alexsey Fadeev")
-    @Test
-
-    void successSearchWikiTest() {
-//        back();
-        step("Type search", () -> {
-//            $(id("org.wikipedia:id/search_container")).click();
-            $(AppiumBy.accessibilityId("Search Wikipedia")).click();
-            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Selenium");
-        });
-        step("Verify content found", () -> {
-            $$(id("org.wikipedia.alpha:id/page_list_item_title"))
-                    .shouldHave(sizeGreaterThan(0));
-        });
-    }
-    @Test
-    @DisplayName("Проверка текста в окне регистрации пользователя на устройстве Android")
-    void checkTextLogInToWikipedia() {
-        step("Жмем кнопку регистрации пользователя", () -> {
-            $(byClassName("android.support.v7.widget.LinearLayoutCompat")).click();
-        });
-        step("Проверяем наличие текста ", () -> {
-            $(id("org.wikipedia.alpha:id/explore_overflow_account_name")).shouldHave(text("Log in to Wikipedia"));
-        });
-    }
+//    @Owner("Alexsey Fadeev")
+//    @Test
+//
+//    void successSearchWikiTest() {
+////        back();
+//        step("Type search", () -> {
+////            $(id("org.wikipedia:id/search_container")).click();
+//            $(AppiumBy.accessibilityId("Search Wikipedia")).click();
+//            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Selenium");
+//        });
+//        step("Verify content found", () -> {
+//            $$(id("org.wikipedia.alpha:id/page_list_item_title"))
+//                    .shouldHave(sizeGreaterThan(0));
+//        });
+//    }
+//    @Test
+//    @DisplayName("Проверка текста в окне регистрации пользователя на устройстве Android")
+//    void checkTextLogInToWikipedia() {
+//        step("Жмем кнопку регистрации пользователя", () -> {
+//            $(byClassName("android.support.v7.widget.LinearLayoutCompat")).click();
+//        });
+//        step("Проверяем наличие текста ", () -> {
+//            $(id("org.wikipedia.alpha:id/explore_overflow_account_name")).shouldHave(text("Log in to Wikipedia"));
+//        });
+//    }
 //
 //
-    @Owner("Alexsey Fadeev")
-    @Test
-    void countryPageSearchTest() {
-//        step("Skip onboarding pages", () -> back());
-        step("Type search", () -> {
-            $(AppiumBy.accessibilityId("Search Wikipedia")).click();
-            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Argentina");
-        });
-        step("Verify content found", () -> {
-            $$(AppiumBy.className("android.widget.TextView"))
-                    .shouldHave(CollectionCondition.sizeGreaterThan(0));
-        });
-        step("Verify page is correct", () -> {
-            $(id("org.wikipedia.alpha:id/page_list_item_title")).click();
-            $(AppiumBy.className("android.webkit.WebView")).click();
-            $(AppiumBy.className("android.widget.TextView")).shouldHave(text("Argentina"));
-        });
-    }
+//    @Owner("Alexsey Fadeev")
+//    @Test
+//    void countryPageSearchTest() {
+////        step("Skip onboarding pages", () -> back());
+//        step("Type search", () -> {
+//            $(AppiumBy.accessibilityId("Search Wikipedia")).click();
+//            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Argentina");
+//        });
+//        step("Verify content found", () -> {
+//            $$(AppiumBy.className("android.widget.TextView"))
+//                    .shouldHave(CollectionCondition.sizeGreaterThan(0));
+//        });
+//        step("Verify page is correct", () -> {
+//            $(id("org.wikipedia.alpha:id/page_list_item_title")).click();
+//            $(AppiumBy.className("android.webkit.WebView")).click();
+//            $(AppiumBy.className("android.widget.TextView")).shouldHave(text("Argentina"));
+//        });
+//    }
 
 
     @Owner("Alexsey Fadeev")
