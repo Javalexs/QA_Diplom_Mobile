@@ -42,13 +42,13 @@ public class CheckAndroidTests extends TestBase{
             $(accessibilityId("Search Wikipedia")).click();
             $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Java");
         });
-        step("Click on the selenium article", () -> {
+        step("Click on the Java article", () -> {
             $(id("org.wikipedia.alpha:id/fragment_feed_header")).click();
         });
         step("Click on the back button", () -> {
             $(id("org.wikipedia.alpha:id/view_wiki_error_button")).click();
         });
-        step("Check visibility of header logo", () ->
+        step("Check visibility of the header logo", () ->
                 $(id("org.wikipedia.alpha:id/single_fragment_toolbar_wordmark"))
                         .shouldBe(visible));
     }
