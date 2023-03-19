@@ -15,16 +15,13 @@ public class TestBase {
     public static String env = System.getProperty("env");
     @BeforeAll
     static void beforeAll() {
-        if (env == null) {
-            env = "remote";
-        }
         switch (env) {
             case "remote":
-                Configuration.browser = BrowserStackDriver.class.getName();
-                break;
+                Configuration.browser = BrowserStackDriver.class.getName(); break;
             case "local":
-                Configuration.browser = LocalMobileDriver.class.getName();
-                break;
+                Configuration.browser = LocalMobileDriver.class.getName(); break;
+            default:
+                Configuration.browser = BrowserStackDriver.class.getName();
         }
         Configuration.browserSize = null;
         Configuration.pageLoadTimeout = 35000;
