@@ -126,7 +126,7 @@ BROWSER выбрать браузер для запуска и подтверд�
 
 ## Интеграция с [Allure TestOps](https://allure.autotests.cloud/launch/20096)<img width="4%" title="Allure TestOPS" src="images/icons/Allure_TO.svg">
 <p align="center">
-  <img src="images/icons/screen/AllureTOps.jpg" alt="AllureTestOps" width="900">
+  <img src="images/screen/AllureTOps.jpg" alt="AllureTestOps" width="900">
 </p>
 
 
@@ -136,16 +136,16 @@ BROWSER выбрать браузер для запуска и подтверд�
 
 
 <p align="center">
-<img title="Telegram Notifications" src="images/icons/screen/MesTel.jpg">
+<img title="Telegram Notifications" src="images/screen/MesTel.jpg">
 </p>
 
 
 ## Пример запуска тестов в Browserstack
 
 
-На данном видео выполняется весь процесс тестирования мобильного приложения Wikipedia
+На данном видео выполняется процесс тестирования раздела "поиск" мобильного приложения Wikipedia
 
 
 <p align="center">
-  <img title="Selenoid Video" src="images/icons/screen/video1.gif">
+  <img title="Selenoid Video" src="images/screen/video1.gif">
 </p>
