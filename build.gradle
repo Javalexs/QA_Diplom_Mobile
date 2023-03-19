@@ -12,7 +12,7 @@ def allureVersion = "2.20.1"
 dependencies {
     testImplementation (
             'org.junit.jupiter:junit-jupiter-api:5.9.2',
-            'com.codeborne:selenide:6.11.2',
+            'com.codeborne:selenide:6.12.2',
             'io.qameta.allure:allure-selenide:2.20.1',
             'org.junit.jupiter:junit-jupiter:5.9.2',
             'io.github.bonigarcia:webdrivermanager:5.2.1',
