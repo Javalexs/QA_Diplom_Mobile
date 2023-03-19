@@ -41,19 +41,18 @@
 
 ## :computer: Запуск тестов
 
-<code><img width="3%" title="IntelliJ IDEA" src="images/icons/Idea.svg"></code>
-### из терминала среды разработки IntelliJ IDEA
-### Локальный запуск тестов производится при помощи команды:
+### <code><img width="3%" title="IntelliJ IDEA" src="images/icons/Idea.svg"></code>
+ из терминала среды разработки IntelliJ IDEA
+### локальный запуск тестов производится при помощи команды:
 ```bash
 gradle clean test -Denv=local
 ```
-### Удаленный запуск тестов производится при помощи команды:
+### удаленный запуск тестов производится при помощи команды:
 ```bash
 gradle clean test -Denv=remote
 ```
 
-<code><img width="3%" title="Jenkins" src="images/icons/Jenkins.svg"/></code> 
-### Запуск тестов в [Jenkins](https://jenkins.autotests.cloud/job/QA_Project_Mobile/)
+### <code><img width="3%" title="Jenkins" src="images/icons/Jenkins.svg"/></code> в фреймворке [Jenkins](https://jenkins.autotests.cloud/job/QA_Project_Mobile/)
 
 Для запуска тестов в программе нужно нажать <code>Собрать с параметрами</code>. В графе
 BROWSER выбрать браузер для запуска и подтвердить кликнув на кнопку <code>Собрать</code>
